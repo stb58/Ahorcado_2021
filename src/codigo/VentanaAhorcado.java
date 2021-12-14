@@ -24,15 +24,33 @@ public class VentanaAhorcado extends javax.swing.JFrame {
         letra = letra.toUpperCase();//Convierto la letra en mayuscula
         palabraOculta = palabraOculta.toUpperCase();
         String palabraConGuiones = panelGuiones.getText();
+        if (palabraOculta.contains(letra)){
+            
+        }else {
+            numeroFallos++;
+            dibujaImagen(numeroFallos);
+        }
     }
     
     public void chequeaBoton(JButton miBoton){
        //Borra la letra que ya se ha escogido.
        miBoton.setEnabled(false);
-       System.out.println(miBoton.getText());
+       chequeaLetra(miBoton.getText());
    }
    private void dibujaImagen(int numeroImagen){
-       URL nombreImagen = getClass().getResource("/Imagenes/ahorcado_0.png");
+       URL nombreImagen = null;
+      switch(numeroImagen){
+          case 0 : nombreImagen = getClass().getResource("/Imagenes/ahorcado_0.png"); break;
+          case 1 : nombreImagen = getClass().getResource("/Imagenes/ahorcado_1.png"); break;
+          case 2 : nombreImagen = getClass().getResource("/Imagenes/ahorcado_2.png"); break;
+          case 3 : nombreImagen = getClass().getResource("/Imagenes/ahorcado_3.png"); break;
+          case 4 : nombreImagen = getClass().getResource("/Imagenes/ahorcado_4.png"); break;
+          case 5 : nombreImagen = getClass().getResource("/Imagenes/ahorcado_5.png"); break;
+          case 6 : nombreImagen = getClass().getResource("/Imagenes/ahorcado_fin.png"); break;
+          default: nombreImagen = getClass().getResource("/Imagenes/ahorcado_fin.png"); break;
+          
+      }
+       getClass().getResource("/Imagenes/ahorcado_0.png");
        ImageIcon miImagen = new ImageIcon(new ImageIcon(nombreImagen).getImage().getScaledInstance(panelAhorcado.getWidth(), panelAhorcado.getHeight(), Image.SCALE_DEFAULT));
        panelAhorcado.setIcon(miImagen);
    }
