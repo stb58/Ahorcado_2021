@@ -25,7 +25,12 @@ public class VentanaAhorcado extends javax.swing.JFrame {
         palabraOculta = palabraOculta.toUpperCase();
         String palabraConGuiones = panelGuiones.getText();
         if (palabraOculta.contains(letra)){
-            
+            for (int i=0; i<palabraOculta.length(); i++){
+                if (palabraOculta.charAt(i) == letra.charAt(0)){
+                   palabraConGuiones = palabraConGuiones.substring(0, 2*i) + letra + palabraConGuiones.substring(2*i + 1);  
+                }
+            }
+            panelGuiones.setText(palabraConGuiones);
         }else {
             numeroFallos++;
             dibujaImagen(numeroFallos);
