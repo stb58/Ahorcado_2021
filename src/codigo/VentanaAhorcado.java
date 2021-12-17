@@ -22,8 +22,10 @@ public class VentanaAhorcado extends javax.swing.JFrame {
     //del ahorcado, selecciona una palabra al azar
     
     int numeroFallos = 0;
+    int numeroAciertos = 0;
     
     public void chequeaLetra(String letra){
+        URL nombreImagen = null;
         letra = letra.toUpperCase();//Convierto la letra en mayuscula
         palabraOculta = palabraOculta.toUpperCase();
         String palabraConGuiones = panelGuiones.getText();
@@ -34,6 +36,13 @@ public class VentanaAhorcado extends javax.swing.JFrame {
                 }
             }
             panelGuiones.setText(palabraConGuiones);
+            numeroAciertos++;
+            if (numeroAciertos==5){
+                nombreImagen = getClass().getResource("/Imagenes/Ganaste.jpg");
+            }
+       ImageIcon miImagen = new ImageIcon(new ImageIcon(nombreImagen).getImage().getScaledInstance(panelAhorcado.getWidth(), panelAhorcado.getHeight(), Image.SCALE_DEFAULT));
+       panelAhorcado.setIcon(miImagen);
+            
         }else {
             numeroFallos++;
             dibujaImagen(numeroFallos);
