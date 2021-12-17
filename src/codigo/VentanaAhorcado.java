@@ -6,6 +6,7 @@ package codigo;
 
 import java.awt.Image;
 import java.net.URL;
+import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
@@ -14,9 +15,11 @@ import javax.swing.JButton;
  * @author sergi
  */
 public class VentanaAhorcado extends javax.swing.JFrame {
-
-    String palabraOculta="CETYS"; //palabra a adivinar en esta primera version
-    //del ahorcado, siempre es la misma
+    
+    String[] palabras = {"CETYS", "PLAYA", "SAUNA", "FANTA", "PIZZA"};
+    int numeroAzar = (int) (Math.random()*6); //Con este comando, elegirá una palabra al azar del array de arriba
+    String palabraOculta = palabras[numeroAzar]; //palabra a adivinar en esta primera version
+    //del ahorcado, selecciona una palabra al azar
     
     int numeroFallos = 0;
     
@@ -598,4 +601,6 @@ public class VentanaAhorcado extends javax.swing.JFrame {
     private javax.swing.JLabel panelAhorcado;
     private javax.swing.JLabel panelGuiones;
     // End of variables declaration//GEN-END:variables
+
+
 }
