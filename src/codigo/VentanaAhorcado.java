@@ -1,8 +1,8 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package codigo;
+*/
+ package codigo;
 
 import java.awt.Image;
 import java.net.URL;
@@ -37,8 +37,8 @@ public class VentanaAhorcado extends javax.swing.JFrame {
             }
             panelGuiones.setText(palabraConGuiones);
             numeroAciertos++;
-            if (numeroAciertos==5){
-                nombreImagen = getClass().getResource("/Imagenes/Ganaste.jpg");
+            if (numeroAciertos>4){
+                nombreImagen = getClass().getResource("/Imagenes/ganaste.jpg");
             }
        ImageIcon miImagen = new ImageIcon(new ImageIcon(nombreImagen).getImage().getScaledInstance(panelAhorcado.getWidth(), panelAhorcado.getHeight(), Image.SCALE_DEFAULT));
        panelAhorcado.setIcon(miImagen);
@@ -46,6 +46,9 @@ public class VentanaAhorcado extends javax.swing.JFrame {
         }else {
             numeroFallos++;
             dibujaImagen(numeroFallos);
+            if(numeroFallos>6){ //Si el numero de fallos es mayor que 6 cierra el programa
+                System.exit(0);
+            }
         }
     }
     
@@ -57,17 +60,17 @@ public class VentanaAhorcado extends javax.swing.JFrame {
    private void dibujaImagen(int numeroImagen){
        URL nombreImagen = null;
       switch(numeroImagen){
-          case 0 : nombreImagen = getClass().getResource("/Imagenes/ahorcado_0.png"); break;
-          case 1 : nombreImagen = getClass().getResource("/Imagenes/ahorcado_1.png"); break;
-          case 2 : nombreImagen = getClass().getResource("/Imagenes/ahorcado_2.png"); break;
-          case 3 : nombreImagen = getClass().getResource("/Imagenes/ahorcado_3.png"); break;
-          case 4 : nombreImagen = getClass().getResource("/Imagenes/ahorcado_4.png"); break;
-          case 5 : nombreImagen = getClass().getResource("/Imagenes/ahorcado_5.png"); break;
-          case 6 : nombreImagen = getClass().getResource("/Imagenes/ahorcado_fin.png"); break;
-          default: nombreImagen = getClass().getResource("/Imagenes/ahorcado_fin.png"); break;
+          case 0 : nombreImagen = getClass().getResource("/Imagenes/ahorcado0.jpg"); break;
+          case 1 : nombreImagen = getClass().getResource("/Imagenes/ahorcado1.jpg"); break;
+          case 2 : nombreImagen = getClass().getResource("/Imagenes/ahorcado2.jpg"); break;
+          case 3 : nombreImagen = getClass().getResource("/Imagenes/ahorcado3.jpg"); break;
+          case 4 : nombreImagen = getClass().getResource("/Imagenes/ahorcado4.jpg"); break;
+          case 5 : nombreImagen = getClass().getResource("/Imagenes/ahorcado5.jpg"); break;
+          case 6 : nombreImagen = getClass().getResource("/Imagenes/ahorcadofin.jpg"); break;
+          default: nombreImagen = getClass().getResource("/Imagenes/ahorcadofin.jpg"); break;
           
       }
-       getClass().getResource("/Imagenes/ahorcado_0.png");
+       getClass().getResource("/Imagenes/ahorcado0.jpg");
        ImageIcon miImagen = new ImageIcon(new ImageIcon(nombreImagen).getImage().getScaledInstance(panelAhorcado.getWidth(), panelAhorcado.getHeight(), Image.SCALE_DEFAULT));
        panelAhorcado.setIcon(miImagen);
    }
